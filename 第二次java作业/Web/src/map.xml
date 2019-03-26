@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classes>
+	<class-method>test/res</class-method>
+	<url>/t/1</url>
+	<class-method>test/res2</class-method>
+	<url>/t/2</url>
+</classes>
