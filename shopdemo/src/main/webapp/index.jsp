@@ -8,23 +8,33 @@
 <title>商城首页</title>
 </head>
 <body>
-	<c:if test="${empty loginUser }">
-		<li><a href="${pageContext.request.contextPath}/login.jsp">登录</a></li>
-		<li><a href="${pageContext.request.contextPath}/register.jsp">注册</a></li>
-	</c:if>
-	<li><a href="">购物车</a></li>
-	<c:if test="${not empty loginUser }">
-		<div>欢迎:${loginUser.nickName }</div>
-		<li><a href="">我的订单</a></li>
-		<li><a href="">退出</a></li>
-	</c:if>
+	<jsp:include page="/header.jsp"></jsp:include>
 	<br>
-	<c:forEach items="${allCategory }" var="category">
-		<li value="${category.cid }"><a href="" >${category.cname }</a></li>
-	</c:forEach>
-	
+	<!-- 
 	<c:forEach items="${topProduct }" var="product">
 		<li value="${product.product_id }"><a href="" >${product.product_price }:${product.product_name }</a></li>
 	</c:forEach>
+	 -->
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1 align="center">最新商品</h1>
+		</div>
+	</div>
+
+	<div align="center" style="magin: auto; float: right">
+		<c:forEach items="${topProduct }" var="pro">
+			<div class="col-sm-6 col-md-3">
+				<a class="thumbnail"
+					href="${pageContext.request.contextPath }/product?method=productInfo&product_id=${pro.product_id}&cid=${pro.cid}">
+					<img src="${pro.product_image }" alt="图片找到不啦">
+				</a> <a class="caption" align="center"
+					href="${pageContext.request.contextPath }/product?method=productInfo&product_id=${pro.product_id}&cid=${pro.cid}">
+					<h3>${pro.product_name }</h3>
+					<p>售价:${pro.product_price }</p>
+				</a>
+			</div>
+		</c:forEach>
+	</div>
 </body>
 </html>

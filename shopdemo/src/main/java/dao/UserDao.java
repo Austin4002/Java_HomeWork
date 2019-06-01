@@ -31,7 +31,7 @@ public class UserDao {
 
 	public User find(String nickName, String password) throws SQLException {
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-		String sql = "select * from user where user_nickName = ? and user_password = ?";
+		String sql = "select * from user where nickName = ? and password = ?";
 		User user = runner.query(sql, new BeanHandler<User>(User.class),nickName,password);
 		return user;
 	}

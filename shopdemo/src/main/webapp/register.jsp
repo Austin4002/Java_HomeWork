@@ -7,6 +7,7 @@
 <title>注册</title>
 </head>
 <body>
+	<jsp:include page="/header.jsp"></jsp:include>
 	<div align="center">
 		<form action="${pageContext.request.contextPath}/register" method="post">
 			用户名<input type="text" name="nickName" placeholder="请输入用户名"><br>

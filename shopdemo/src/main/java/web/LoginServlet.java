@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 		User u = service.login(user);
 		if(u !=null) {
 			request.getSession().setAttribute("loginUser", u);
-			response.sendRedirect(request.getContextPath()+"/index");
+			response.sendRedirect(request.getContextPath()+"/product?method=index");
 		}else {
 			request.setAttribute("msg", "用户名或密码不正确");
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
