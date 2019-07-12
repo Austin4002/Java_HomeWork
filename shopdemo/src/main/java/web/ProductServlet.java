@@ -30,7 +30,6 @@ public class ProductServlet extends BaseServlet {
 		session.removeAttribute("cart");
 		// 跳转回cart.jsp
 		response.sendRedirect(request.getContextPath() + "/cart.jsp");
-
 	}
 
 	// 删除一件商品
@@ -45,7 +44,6 @@ public class ProductServlet extends BaseServlet {
 			cartItems.remove(product_id);
 			cart.setCartItems(cartItems);
 		}
-
 		session.setAttribute("cart", cart);
 		response.sendRedirect(request.getContextPath() + "/cart.jsp");
 	}
@@ -68,7 +66,6 @@ public class ProductServlet extends BaseServlet {
 		cartItem.setProduct(product);
 		cartItem.setBuyNum(buyNum);
 		cartItem.setSubtotal(subtotal);
-
 		Cart cart = (Cart) session.getAttribute("cart");
 		if (cart == null) {
 			cart = new Cart();
@@ -113,7 +110,6 @@ public class ProductServlet extends BaseServlet {
 		request.setAttribute("cid", cid);
 		request.setAttribute("currentPage", currentPage);
 		request.getRequestDispatcher("/productInfo.jsp").forward(request, response);
-
 	}
 
 	// 获得商品分类列表
@@ -149,10 +145,8 @@ public class ProductServlet extends BaseServlet {
 		int currentPage = Integer.parseInt(currentPageStr);
 		// 每页显示4条数据
 		int currentCount = 4;
-
 		ProductService service = new ProductService();
 		PageBean<Product> pageBean = service.findProductListByPage(cid, currentPage, currentCount);
-
 		request.setAttribute("pageBean", pageBean);
 		request.setAttribute("cid", cid);
 		request.getRequestDispatcher("/product.jsp").forward(request, response);

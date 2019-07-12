@@ -11,11 +11,11 @@ import utils.DataSourceUtils;
 
 public class CategoryDao {
 
-	public List<Category> finAll() throws SQLException {
-		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-		String sql = "select * from category";
-		List<Category> list = runner.query(sql, new BeanListHandler<Category>(Category.class));
+	public List<Category> findAll() throws SQLException {
+		QueryRunner runner=new QueryRunner(DataSourceUtils.getDataSource());
+		String sql="select * from category";
+		List<Category> list=runner.query(sql,new BeanListHandler<Category>(Category.class));
 		return list;
 	}
-
+	
 }

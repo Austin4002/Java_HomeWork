@@ -7,14 +7,14 @@ import dao.CategoryDao;
 import domain.Category;
 
 public class CategoryService {
-
+	
 	public List<Category> findAll() {
-		CategoryDao categoryDao = new CategoryDao();
-		List<Category> list = null;
+		CategoryDao categoryDao=new CategoryDao();
+		List<Category> list=null;
 		try {
-			list = categoryDao.finAll();
-		} catch (SQLException e) {
-			e.printStackTrace();
+			list=categoryDao.findAll();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
 		}
 		return list;
 	}
